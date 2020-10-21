@@ -5,6 +5,7 @@
     .k-textbox-container,
     .k-floating-label-container {
         padding-top: $floating-label-height;
+        font-size: $floating-label-font-size;
         display: inline-flex;
         vertical-align: middle;
         position: relative;
@@ -13,7 +14,7 @@
 
         > .k-label {
             max-width: 90%;
-            font-size: $floating-label-font-size;
+            font-size: inherit;
             line-height: $floating-label-line-height;
             white-space: nowrap;
             text-overflow: ellipsis;
