@@ -1,0 +1,54 @@
+@include exports( "fab/theme" ) {
+    // FAB
+    .k-fab {
+        @include box-shadow($fab-shadow);
+    }
+
+    // Theme colors
+    @each $name, $color in $fab-theme-colors {
+        .k-fab-#{$name} {
+            border-color: $color;
+            color: contrast-wcag( $color );
+            background-color: $color;
+            background-image: linear-gradient(rgba( adjust-hue( $color, 14), 0 ), rgba( adjust-hue( $color, 14), .2 ));
+        }
+    }
+
+    // Hover Theme colors
+    @each $name, $color in $fab-theme-colors {
+        .k-state-hover.k-fab-#{$name},
+        .k-fab-#{$name}:hover {
+            border-color: adjust-hue( $color, 3 );
+            color: contrast-wcag( $color );
+            background-color: adjust-hue( $color, 3 );
+            background-image: linear-gradient(rgba( adjust-hue( adjust-hue( $color, 3 ), 14), 0 ), rgba( adjust-hue( adjust-hue( $color, 3 ), 14), .2 ));
+        }
+    }
+
+    // Focus Theme colors
+    @each $name, $color in $fab-theme-colors {
+        .k-state-focus.k-fab-#{$name},
+        .k-fab-#{$name}:focus {
+            box-shadow: 0 3px 4px 0 rgba($color, .4);
+        }
+    }
+
+    // Active Theme colors
+    @each $name, $color in $fab-theme-colors {
+        .k-state-active.k-fab-#{$name},
+        .k-state-selected.k-fab-#{$name},
+        .k-fab-#{$name}:active {
+            border-color: $color;
+            color: contrast-wcag( $color );
+            background-color: $color;
+            background-image: linear-gradient(rgba( adjust-hue( $color, 14), .2 ), rgba( adjust-hue( $color, 14), 0 ));
+            box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, .06);
+        }
+    }
+
+    // Items
+    .k-fab-item > * {
+        @include box-shadow($fab-shadow);
+    }
+
+}

@@ -1,0 +1,145 @@
+@include exports( "fab/layout" ) {
+
+    // Floating Action Button (FAB)
+    .k-fab {
+        padding: 0;
+        border-width: 0;
+        border-style: solid;
+        border-color: transparent;
+        box-sizing: border-box;
+        color: inherit;
+        background-color: transparent;
+        font-size: $fab-font-size;
+        line-height: $fab-line-height;
+        font-family: $fab-font-family;
+        text-align: center;
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+        outline: none;
+
+        // Positions
+        &.k-pos-absolute {
+            position: absolute;
+        }
+        &.k-pos-fixed {
+            position: fixed;
+        }
+        &.k-top-start {
+            top: map-get( $spacing, 4 );
+            left: map-get( $spacing, 4 );
+        }
+        &.k-top-center {
+            top: map-get( $spacing, 4 );
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        &.k-top-end {
+            top: map-get( $spacing, 4 );
+            right: map-get( $spacing, 4 );
+        }
+        &.k-middle-start {
+            top: 50%;
+            transform: translateY(-50%);
+            left: map-get( $spacing, 4 );
+        }
+        &.k-middle-end {
+            top: 50%;
+            transform: translateY(-50%);
+            right: map-get( $spacing, 4 );
+        }
+        &.k-bottom-start {
+            bottom: map-get( $spacing, 4 );
+            left: map-get( $spacing, 4 );
+        }
+        &.k-bottom-center {
+            bottom: map-get( $spacing, 4 );
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        &.k-bottom-end {
+            bottom: map-get( $spacing, 4 );
+            right: map-get( $spacing, 4 );
+        }
+    }
+
+
+    // FAB Icon
+    .k-fab-icon {
+        width: $fab-icon-width;
+        height: $fab-icon-height;
+
+        &:not(:only-child) {
+            margin-right: $icon-spacing;
+            margin-left: -$icon-spacing;
+        }
+    }
+
+
+    // Sizes
+    .k-fab-sm {
+        padding: $fab-padding-y-sm $fab-padding-x-sm;
+    }
+    .k-fab-md {
+        padding: $fab-padding-y $fab-padding-x;
+    }
+    .k-fab-lg {
+        padding: $fab-padding-y-lg $fab-padding-x-lg;
+    }
+
+
+    // Shapes
+    .k-fab-circle {
+        border-radius: 50%;
+    }
+    .k-fab-pill {
+        border-radius: 5rem;
+    }
+    .k-fab-rounded {
+        @include border-radius( $fab-border-radius );
+    }
+    .k-fab-rectangle { }
+    .k-fab-square { }
+
+
+    // Items
+    .k-fab-items {
+        margin: 0;
+        padding: 12px 0;
+        display: flex;
+    }
+
+    .k-fab-item {
+        list-style-type: none;
+        margin: 4px 0;
+    }
+
+    .k-fab-items-bottom {
+        flex-direction: column;
+    }
+
+    .k-fab-items-top {
+        flex-direction: column-reverse;
+    }
+}
+
+@include exports("fab/layout/rtl") {
+
+    .k-rtl .k-fab,
+    .k-fab[dir="rtl"] {
+        direction: rtl;
+
+        .k-fab-icon {
+            &:not(:only-child) {
+                margin-right: -$icon-spacing;
+                margin-left: $icon-spacing;
+            }
+        }
+    }
+}
+
