@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en" class="k-typography k-no-animations">
+<head>
+    <title>FAB Items</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" data-role="kendo-theme" href="../../packages/default/dist/all.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script src="assets/scripts.js"></script>
+
+    <style>
+        #test-area {
+            grid-template-columns: 150px repeat(3, 1fr);
+            grid-template-rows: 30px repeat(4, 250px);
+        }
+
+        .relative-container {
+            position: relative;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="test-area" class="k-d-grid">
+
+        <span></span>
+        <span>Small</span>
+        <span>Medium</span>
+        <span>Large</span>
+
+        <span>Downward - Left Labels</span>
+        <span class="relative-container">
+            <button class="k-fab k-pos-absolute k-top-end k-fab-sm k-fab-primary k-fab-pill">
+                <span class="k-fab-icon k-icon k-i-plus"></span>
+            </button>
+            <!-- Popup animation container -->
+            <!-- top/bottom calculations are based on spacing from the top/bottom + the FAB height -->
+            <!-- right/left calculations are based on spacing from the left/right + half of the FAB's width - half of the item's with -->
+            <ul class="k-fab-items k-fab-items-bottom" style="position: absolute; top: calc(16px + 36px); right: calc(16px + calc(36px / 2) - calc(32px /2));">
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Jason Smith</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-text">JS</span>
+                    </div>
+                </li>
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">George Potter</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-text">GP</span>
+                    </div>
+                </li>
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Andy Murphy</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-text">AM</span>
+                    </div>
+                </li>
+            </ul>
+
+        </span>
+        <span class="relative-container">
+            <button class="k-fab k-pos-absolute k-top-end k-fab-md k-fab-primary k-fab-pill">
+                <span class="k-fab-icon k-icon k-i-plus"></span>
+            </button>
+            <ul class="k-fab-items k-fab-items-bottom" style="position: absolute; top: calc(16px + 52px); right: calc(16px + calc(52px / 2) - calc(32px /2));">
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Darrel Solis</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-secondary k-avatar-solid">
+                        <div class="k-avatar-image"><img src="https://demos.telerik.com/kendo-ui/content/web/Customers/SPLIR.jpg" /></div>
+                    </div>
+                </li>
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Mia Caldwell</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-secondary k-avatar-solid">
+                        <div class="k-avatar-image"><img src="https://demos.telerik.com/kendo-ui/content/web/Customers/SPLIR.jpg" /></div>
+                    </div>
+                </li>
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Mallory Gilliam</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-secondary k-avatar-solid">
+                        <div class="k-avatar-image"><img src="https://demos.telerik.com/kendo-ui/content/web/Customers/SPLIR.jpg" /></div>
+                    </div>
+                </li>
+            </ul>
+        </span>
+        <span class="relative-container">
+            <button class="k-fab k-pos-absolute k-top-end k-fab-lg k-fab-primary k-fab-pill">
+                <span class="k-fab-icon k-icon k-i-plus"></span>
+            </button>
+            <ul class="k-fab-items k-fab-items-bottom" style="position: absolute; top: calc(16px + 68px); right: calc(16px + calc(68px / 2) - calc(32px /2));">
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Disabled</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-icon k-icon k-i-close"></span>
+                    </div>
+                </li>
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Focus</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-icon k-icon k-i-pencil"></span>
+                    </div>
+                </li>
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Hover</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-icon k-icon k-i-hand"></span>
+                    </div>
+                </li>
+            </ul>
+        </span>
+
+        <span>Downward - Right Labels</span>
+        <span class="relative-container">
+            <button class="k-fab k-pos-absolute k-top-start k-fab-sm k-fab-primary k-fab-pill">
+                <span class="k-fab-icon k-icon k-i-plus"></span>
+            </button>
+            <ul class="k-fab-items k-fab-items-bottom" style="position: absolute; top: calc(16px + 36px); left: calc(16px + calc(36px / 2) - calc(32px /2));">
+                <li class="k-fab-item k-text-left">
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-text">JS</span>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Jason Smith</span>
+                </li>
+                <li class="k-fab-item k-text-left">
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-text">GP</span>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">George Potter</span>
+                </li>
+                <li class="k-fab-item k-text-left" onclick>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-text">AM</span>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Andy Murphy</span>
+                </li>
+            </ul>
+            </ul>
+        </span>
+        <span class="relative-container">
+            <button class="k-fab k-pos-absolute k-top-start k-fab-md k-fab-primary k-fab-pill">
+                <span class="k-fab-icon k-icon k-i-plus"></span>
+            </button>
+            <ul class="k-fab-items k-fab-items-bottom" style="position: absolute; top: calc(16px + 52px); left: calc(16px + calc(52px / 2) - calc(32px /2));">
+                <li class="k-fab-item k-text-left">
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-secondary k-avatar-solid">
+                        <div class="k-avatar-image"><img src="https://demos.telerik.com/kendo-ui/content/web/Customers/SPLIR.jpg" /></div>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Darrel Solis</span>
+                </li>
+                <li class="k-fab-item k-text-left">
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-secondary k-avatar-solid">
+                        <div class="k-avatar-image"><img src="https://demos.telerik.com/kendo-ui/content/web/Customers/SPLIR.jpg" /></div>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Mia Caldwell</span>
+                </li>
+                <li class="k-fab-item k-text-left" onclick>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-secondary k-avatar-solid">
+                        <div class="k-avatar-image"><img src="https://demos.telerik.com/kendo-ui/content/web/Customers/SPLIR.jpg" /></div>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Mallory Gilliam</span>
+                </li>
+            </ul>
+        </span>
+        <span class="relative-container">
+            <button class="k-fab k-pos-absolute k-top-start k-fab-lg k-fab-primary k-fab-pill">
+                <span class="k-fab-icon k-icon k-i-plus"></span>
+            </button>
+            <ul class="k-fab-items k-fab-items-bottom" style="position: absolute; top: calc(16px + 68px); left: calc(16px + calc(68px / 2) - calc(32px /2));">
+                <li class="k-fab-item k-text-left">
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-icon k-icon k-i-close"></span>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Disabled</span>
+                </li>
+                <li class="k-fab-item k-text-left">
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-icon k-icon k-i-pencil"></span>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Focus</span>
+                </li>
+                <li class="k-fab-item k-text-left" onclick>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-icon k-icon k-i-hand"></span>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Hover</span>
+                </li>
+            </ul>
+        </span>
+
+        <span>Upward - Left Labels</span>
+        <span class="relative-container">
+            <button class="k-fab k-pos-absolute k-bottom-end k-fab-sm k-fab-primary k-fab-pill">
+                <span class="k-fab-icon k-icon k-i-plus"></span>
+            </button>
+            <ul class="k-fab-items k-fab-items-top" style="position: absolute; bottom: calc(16px + 36px); right: calc(16px + calc(36px / 2) - calc(32px /2));">
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Jason Smith</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-text">JS</span>
+                    </div>
+                </li>
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">George Potter</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-text">GP</span>
+                    </div>
+                </li>
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Andy Murphy</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-text">AM</span>
+                    </div>
+                </li>
+            </ul>
+        </span>
+        <span class="relative-container">
+            <button class="k-fab k-pos-absolute k-bottom-end k-fab-md k-fab-primary k-fab-pill">
+                <span class="k-fab-icon k-icon k-i-plus"></span>
+            </button>
+            <ul class="k-fab-items k-fab-items-top" style="position: absolute; bottom: calc(16px + 52px); right: calc(16px + calc(52px / 2) - calc(32px /2));">
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Darrel Solis</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-secondary k-avatar-solid">
+                        <div class="k-avatar-image"><img src="https://demos.telerik.com/kendo-ui/content/web/Customers/SPLIR.jpg" /></div>
+                    </div>
+                </li>
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Mia Caldwell</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-secondary k-avatar-solid">
+                        <div class="k-avatar-image"><img src="https://demos.telerik.com/kendo-ui/content/web/Customers/SPLIR.jpg" /></div>
+                    </div>
+                </li>
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Mallory Gilliam</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-secondary k-avatar-solid">
+                        <div class="k-avatar-image"><img src="https://demos.telerik.com/kendo-ui/content/web/Customers/SPLIR.jpg" /></div>
+                    </div>
+                </li>
+            </ul>
+        </span>
+        <span class="relative-container">
+            <button class="k-fab k-pos-absolute k-bottom-end k-fab-lg k-fab-primary k-fab-pill">
+                <span class="k-fab-icon k-icon k-i-plus"></span>
+            </button>
+            <ul class="k-fab-items k-fab-items-top" style="position: absolute; bottom: calc(16px + 68px); right: calc(16px + calc(68px / 2) - calc(32px /2));">
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Disabled</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-icon k-icon k-i-close"></span>
+                    </div>
+                </li>
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Focus</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-icon k-icon k-i-pencil"></span>
+                    </div>
+                </li>
+                <li class="k-fab-item k-text-right">
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Hover</span>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-icon k-icon k-i-hand"></span>
+                    </div>
+                </li>
+            </ul>
+        </span>
+
+        <span>Upward - Right Labels</span>
+        <span class="relative-container">
+            <button class="k-fab k-pos-absolute k-bottom-start k-fab-sm k-fab-primary k-fab-pill">
+                <span class="k-fab-icon k-icon k-i-plus"></span>
+            </button>
+            <ul class="k-fab-items k-fab-items-top" style="position: absolute; bottom: calc(16px + 36px); left: calc(16px + calc(36px / 2) - calc(32px /2));">
+                <li class="k-fab-item k-text-left">
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-text">JS</span>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Jason Smith</span>
+                </li>
+                <li class="k-fab-item k-text-left">
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-text">GP</span>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">George Potter</span>
+                </li>
+                <li class="k-fab-item k-text-left" onclick>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-text">AM</span>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Andy Murphy</span>
+                </li>
+            </ul>
+        </span>
+        <span class="relative-container">
+            <button class="k-fab k-pos-absolute k-bottom-start k-fab-md k-fab-primary k-fab-pill">
+                <span class="k-fab-icon k-icon k-i-plus"></span>
+            </button>
+            <ul class="k-fab-items k-fab-items-top" style="position: absolute; bottom: calc(16px + 52px); left: calc(16px + calc(52px / 2) - calc(32px /2));">
+                <li class="k-fab-item k-text-left">
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-secondary k-avatar-solid">
+                        <div class="k-avatar-image"><img src="https://demos.telerik.com/kendo-ui/content/web/Customers/SPLIR.jpg" /></div>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Darrel Solis</span>
+                </li>
+                <li class="k-fab-item k-text-left">
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-secondary k-avatar-solid">
+                        <div class="k-avatar-image"><img src="https://demos.telerik.com/kendo-ui/content/web/Customers/SPLIR.jpg" /></div>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Mia Caldwell</span>
+                </li>
+                <li class="k-fab-item k-text-left" onclick>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-secondary k-avatar-solid">
+                        <div class="k-avatar-image"><img src="https://demos.telerik.com/kendo-ui/content/web/Customers/SPLIR.jpg" /></div>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Mallory Gilliam</span>
+                </li>
+            </ul>
+        </span>
+        <span class="relative-container">
+            <button class="k-fab k-pos-absolute k-bottom-start k-fab-lg k-fab-primary k-fab-pill">
+                <span class="k-fab-icon k-icon k-i-plus"></span>
+            </button>
+            <ul class="k-fab-items k-fab-items-top" style="position: absolute; bottom: calc(16px + 68px); left: calc(16px + calc(68px / 2) - calc(32px /2));">
+                <li class="k-fab-item k-text-left">
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-icon k-icon k-i-close"></span>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Disabled</span>
+                </li>
+                <li class="k-fab-item k-text-left">
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-icon k-icon k-i-pencil"></span>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Focus</span>
+                </li>
+                <li class="k-fab-item k-text-left" onclick>
+                    <div class="k-avatar k-avatar-md k-avatar-circle k-avatar-primary k-avatar-solid">
+                        <span class="k-avatar-icon k-icon k-i-hand"></span>
+                    </div>
+                    <span class="k-badge k-badge-md k-badge-light k-badge-rounded">Hover</span>
+                </li>
+            </ul>
+        </span>
+
+    </div>
+
+</body>
+</html>
