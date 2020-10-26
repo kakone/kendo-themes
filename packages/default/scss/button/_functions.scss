@@ -1,0 +1,54 @@
+@function identity( $value ) {
+    @return $value;
+}
+
+@function button-theme( $base, $states, $transformer ) {
+    $result: ();
+
+    @each $state in $states {
+        $state-map: ();
+
+        $transformations: map-get( $transformer, $state );
+
+        // Skip null values
+        @if $transformations {
+
+            @each $prop, $transformation in $transformations {
+
+                $prop-val: null;
+
+                // Skip null values
+                @if $prop and $transformation {
+
+                    @if type-of($transformation) == list {
+
+                    } @else if type-of($transformation) == map {
+                        $fn: map-get( $transformation, fn );
+                        $params: map-get( $transformation, params );
+
+                        @if function-exists( $fn ) {
+                            @if $params {
+                                $prop-val: call( get-function( $fn ), $base, $params... );
+                            } @else {
+                                $prop-val: call( get-function( $fn ), $base );
+                            }
+                        }
+                    } @else {
+                        $prop-val: $transformation;
+                    }
+                }
+
+                @if $prop-val {
+                    $state-map: map-merge($state-map, ( $prop: $prop-val ) );
+                }
+            }
+        }
+
+        @if length( $state-map ) > 0 {
+            $result: map-merge( $result, ( $state: $state-map ) );
+        }
+    }
+
+    @return $result;
+
+}

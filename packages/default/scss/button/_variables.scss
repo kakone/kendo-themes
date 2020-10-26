@@ -1,3 +1,5 @@
+@import "_functions.scss";
+
 // Button
 
 /// Width of border around buttons
@@ -23,6 +25,7 @@ $button-line-height-sm: $line-height-sm !default;
 
 $button-calc-size: calc( #{$button-line-height * 1em} + #{$button-padding-y * 2} + #{$button-border-width * 2} ) !default;
 $button-inner-calc-size: calc( #{$button-line-height * 1em} + #{$button-padding-y * 2} ) !default;
+
 
 /// The text color of the buttons.
 /// @group buttons
@@ -112,3 +115,141 @@ $flat-button-selected-opacity: .2 !default;
 $clear-button-text: $button-text !default;
 $clear-button-hover-text: darken($body-text, 13%) !default;
 $clear-button-focused-opacity: .1 !default;
+
+
+
+
+// TMP
+$button-padding-x-sm: null !default;
+$button-padding-y-sm: null !default;
+$button-border-width-sm: null !default;
+$button-border-radius-sm: null !default;
+$button-font-size-sm: null !default;
+$button-line-height-sm: null !default;
+$button-size-sm: 0 !default;
+$button-inner-size-sm: 0 !default;
+
+$button-padding-x-md: null !default;
+$button-padding-y-md: null !default;
+$button-border-width-md: null !default;
+$button-border-radius-md: null !default;
+$button-font-size-md: null !default;
+$button-line-height-md: null !default;
+$button-size-md: 0 !default;
+$button-inner-size-md: 0 !default;
+
+$button-padding-x-lg: null !default;
+$button-padding-y-lg: null !default;
+$button-border-width-lg: null !default;
+$button-border-radius-lg: null !default;
+$button-font-size-lg: null !default;
+$button-line-height-lg: null !default;
+$button-size-lg: 0 !default;
+$button-inner-size-lg: 0 !default;
+
+
+// Button theme colors
+$button-theme-colors: $theme-colors !default;
+
+$button-interactive-states: (
+    normal,
+    hover,
+    focus,
+    active,
+    selected,
+    disabled
+) !default;
+
+$button-solid-transformer: (
+    normal: (
+        bg: ( fn: identity ),
+        text: ( fn: contrast-wcag ),
+        border: black,
+        gradient: linear-gradient( rgba( black, 0 ), rgba( black, .02 ) ),
+    ),
+    hover: (
+        bg: ( fn: try-shade, params: ( .5 ) ),
+        text: null,
+        border: null,
+        gradient: null,
+    ),
+    // focus: (
+    //     bg: ( fn: try-shade, params: ( .5 ) ),
+    //     text: null,
+    //     border: null,
+    //     gradient: null,
+    // ),
+    active: (
+        bg: null,
+        text: null,
+        border: null,
+        gradient: null,
+    ),
+    selected: (
+        bg: null,
+        text: null,
+        border: null,
+        gradient: null,
+    ),
+    disabled: (
+        bg: null,
+        text: null,
+        border: null,
+        gradient: null,
+    )
+) !default;
+
+
+
+
+
+// Button sizes
+$button-sizes: () !default;
+// sass-lint:disable indentation
+$button-sizes: map-merge((
+    "sm": (
+        "padding": $button-padding-y-sm $button-padding-x-sm,
+        "radius": $button-border-radius-sm,
+        "font-size": $button-font-size-sm,
+        "line-height": $button-line-height-sm,
+        "size": $button-size-sm,
+        "inner-size": $button-inner-size-sm
+    ),
+    "md": (
+        "padding": $button-padding-y-md $button-padding-x-md,
+        "radius": $button-border-radius-md,
+        "font-size": $button-font-size-md,
+        "line-height": $button-line-height-md,
+        "size": $button-size-md,
+        "inner-size": $button-inner-size-md
+    ),
+    "lg": (
+        "padding": $button-padding-y-lg $button-padding-x-lg,
+        "radius": $button-border-radius-lg,
+        "font-size": $button-font-size-lg,
+        "line-height": $button-line-height-lg,
+        "size": $button-size-lg,
+        "inner-size": $button-inner-size-lg
+    )
+), $button-sizes);
+// sass-lint:enable indentation
+
+
+// Button themes
+// $button-themes: () !default;
+// sass-lint:disable indentation
+$button-themes: (
+    "primary": button-theme( $primary, $button-interactive-states, $button-solid-transformer ),
+    "secondary": button-theme( $secondary, $button-interactive-states, $button-solid-transformer ),
+    "tertiary": button-theme( $tertiary, $button-interactive-states, $button-solid-transformer ),
+    "info": button-theme( $info, $button-interactive-states, $button-solid-transformer ),
+    "success": button-theme( $success, $button-interactive-states, $button-solid-transformer ),
+    "warning": button-theme( $warning, $button-interactive-states, $button-solid-transformer ),
+    "error": button-theme( $error, $button-interactive-states, $button-solid-transformer ),
+    "dark": button-theme( $dark, $button-interactive-states, $button-solid-transformer ),
+    "light": button-theme( $light, $button-interactive-states, $button-solid-transformer )
+) !default;
+// sass-lint:enable indentation
+
+
+@debug $button-themes;

@@ -103,3 +103,35 @@ $button-focus-shadow: 0 3px 4px 0 rgba(0, 0, 0, .06) !default;
     // --kendo-button-focus-border: #{$button-focus-border};
     // --kendo-button-focus-gradient: #{$button-focus-gradient};
 }
+
+
+
+
+
+// TMP
+$button-padding-x-sm: null !default;
+$button-padding-y-sm: null !default;
+$button-border-width-sm: null !default;
+$button-border-radius-sm: null !default;
+$button-font-size-sm: null !default;
+$button-line-height-sm: null !default;
+$button-size-sm: 0 !default;
+
+$button-padding-x-md: null !default;
+$button-padding-y-md: null !default;
+$button-border-width-md: null !default;
+$button-border-radius-md: null !default;
+$button-font-size-md: null !default;
+$button-line-height-md: null !default;
+$button-size-md: 0 !default;
+
+$button-padding-x-lg: null !default;
+$button-padding-y-lg: null !default;
+$button-border-width-lg: null !default;
+$button-border-radius-lg: null !default;
+$button-font-size-lg: null !default;
+$button-line-height-lg: null !default;
+$button-size-lg: 0 !default;
+
+// Button sizes
+$button-sizes: () !default;

@@ -3,20 +3,18 @@
     // Button
     .k-button {
         @include use-background-clip();
-        @include border-radius( $button-border-radius );
-        padding: $button-padding-y $button-padding-x;
         box-sizing: border-box;
-        border-width: $button-border-width;
+        border-width: 0;
         border-style: solid;
-        font-size: $button-font-size;
-        line-height: $button-line-height;
         font-family: $button-font-family;
         text-align: center;
         text-decoration: none;
         white-space: nowrap;
         display: inline-flex;
+        flex-flow: row nowrap;
         align-items: center;
         justify-content: center;
+        flex-shrink: 0;
         vertical-align: middle;
         user-select: none;
         cursor: pointer;
@@ -49,52 +47,71 @@
             position: relative;
         }
 
-
-        // Button variants
-        &-icontext {
-            overflow: visible; // IE9
-
-            .k-icon,
-            .k-image,
-            .k-sprite {
-                margin: 0 ($button-padding-x / 2) 0 (-$button-padding-x / 2);
-            }
-
-            &.k-rtl,
-            .k-rtl &,
-            &[dir="rtl"],
-            [dir="rtl"] & {
-                .k-icon,
-                .k-image,
-                .k-sprite {
-                    margin: 0 (-$button-padding-x / 2) 0 ($button-padding-x / 2);
-                }
-            }
-        }
-
     }
 
 
     // Text button
     .k-text-button {
-        > .k-icon,
-        > .k-button-icon {
+        .k-button-icon {
             display: none;
         }
     }
 
 
     // Icon button
-    .k-icon-button,
-    .k-button.k-button-icon {
-        width: $button-calc-size;
-        height: $button-calc-size;
-        padding: $button-padding-y;
-
-        .k-text,
+    .k-icon-button {
         .k-button-text {
             display: none;
         }
+    }
+
+
+    // Button sizes
+    @each $name, $size in $button-sizes {
+        .k-button-#{$name} {
+            padding: map-get( $size, padding );
+            border-width: map-get( $size, border-width );
+            font-size: map-get( $size, font-size );
+            line-height: map-get( $size, line-height );
+        }
+    }
+
+
+    // Button sapes
+    .k-button-rectangle {
+        border-radius: 0;
+    }
+    .k-button-pill {
+        border-radius: 5em;
+    }
+    .k-button-square {
+        padding: 0 !important; // sass-lint:disable-line no-important
+        border-radius: 0;
+    }
+    .k-button-circle {
+        padding: 0 !important; // sass-lint:disable-line no-important
+        border-radius: 100%;
+    }
+    @each $name, $size in $button-sizes {
+
+        .k-button-rounded.k-button-#{$name} {
+            border-radius: map-get( $size, radius );
+        }
+
+        .k-button-leaf.k-button-#{$name} {
+            border-radius: ( map-get( $size, size ) / 2 ) 0;
+        }
+
+        .k-button-square.k-button-#{$name} {
+            width: $button-size-sm;
+            height: $button-size-sm;
+        }
+
+        .k-button-circle.k-button-#{$name} {
+            width: $button-size-sm;
+            height: $button-size-sm;
+        }
+
     }
 
 
@@ -116,59 +133,49 @@
     .k-button-group {
         margin: 0;
         padding: 0;
-        border-width: 0;
         box-sizing: border-box;
-        color: inherit;
-        background-color: transparent;
         list-style: none;
         outline: 0;
         white-space: nowrap;
         display: inline-flex;
-        flex-direction: row;
+        flex-flow: row nowrap;
         vertical-align: middle;
         position: relative;
         -webkit-touch-callout: none;
         -webkit-tap-highlight-color: $rgba-transparent;
 
-        .k-button {
-            @include border-radius( 0 );
+        // Disable shrinking of items
+        > * {
+            flex-shrink: 0;
         }
-        .k-button ~ .k-button {
+
+        // Spacing
+        > .k-button + .k-button {
             margin-inline-start: if( $button-border-width == 0, null, -$button-border-width );
         }
 
+        // z-index
         .k-button:hover,
-        .k-button.k-state-hover,
-        .k-button:active,
-        .k-button.k-state-active {
+        .k-button:focus,
+        .k-button:active {
             z-index: 2;
         }
 
-        .k-group-start,
-        .k-button:first-child {
-            @include border-left-radius( $button-border-radius );
+        // Border radius
+        > .k-button:not(:first-child):not(:last-child) {
+            @include border-radius( 0 );
         }
-        .k-group-end,
-        .k-button:last-child {
-            @include border-right-radius( $button-border-radius );
+        > .k-button.k-group-start:not(:last-child),
+        > .k-button:first-child:not(:last-child) {
+            @include border-right-radius( 0 );
         }
-        .k-group-start.k-group-end,
-        .k-button:first-child:last-child {
-            @include border-radius( $button-border-radius );
-        }
-
-        > input[type="radio"],
-        > input[type="checkbox"],
-        label input[type="radio"],
-        label input[type="checkbox"] {
-            margin: 0;
-            padding: 0;
-            clip: rect(0, 0, 0, 0);
-            position: absolute;
-            pointer-events: none;
+        > .k-button.k-group-end:not(:first-child),
+        > .k-button:last-child:not(:first-child) {
+            @include border-right-radius( 0 );
         }
 
     }
+
 
     .k-button-group-stretched {
         display: flex;
@@ -246,10 +253,6 @@
         &::before {
             display: block;
         }
-    }
-    .k-button.k-flat,
-    .k-button.k-bare {
-        @extend .k-button-flat;
     }
 
 
@@ -405,31 +408,4 @@
             transition: opacity .2s ease-in-out;
         }
     }
-}
-
-
-
-
-@include exports( "button/ie-compat" ) {
-
-    .k-ie9,
-    .k-ie10 {
-
-        .k-button[disabled]:hover,
-        .k-button[disabled]:focus,
-        .k-button.k-state-disabled:hover,
-        .k-button.k-state-disabled:focus {
-            @include disabled-legacy-ie( $disabled-styling );
-        }
-
-    }
-
-    .k-ie {
-
-        .k-button,
-        .k-button-group {
-            display: inline-block;
-        }
-    }
-
 }
