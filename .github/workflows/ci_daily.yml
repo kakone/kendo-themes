@@ -1,0 +1,71 @@
+name: CI | Daily
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  CI: true
+
+on:
+  schedule:
+    # Run at midnight every day
+    - cron: '0 0 * * *'
+
+jobs:
+  ci-daily:
+    name: Run CI
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x]
+
+    steps:
+
+      - name: Checkout branch
+        uses: actions/checkout@v2
+        with:
+          ref: develop
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install
+        run: npm ci
+
+      - name: Bootstrap
+        run: npm run bootstrap
+
+      - name: Lint scripts
+        run: npm run eslint
+
+      - name: Lint styles
+        run: npm run sasslint
+
+      - name: Build docs
+        run: npm run docs
+
+      - name: Check docs
+        run: npm run docs:check
+
+      - name: Build themes using dart-sass (full)
+        run: npm run dart
+
+      - name: Build themes using dart-sass (flat)
+        run: npm run dart:flat
+
+      - name: Build swatches using dart-sass
+        run: npm run dart:swatches
+
+      - name: Build themes using node-sass (full)
+        run: npm run sass
+
+      - name: Build themes using node-sass (flat)
+        run: npm run sass:flat
+
+      - name: Build swatches using node-sass
+        run: npm run sass:swatches

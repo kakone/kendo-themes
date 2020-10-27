@@ -1,23 +1,24 @@
 module.exports = function(config) {
+
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: './',
+        // basePath: '',
 
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: [ "qunit" ],
-
+        frameworks: [ 'mocha' ],
 
         // list of files / patterns to load in the browser
         files: [
-            "node_modules/jquery/dist/jquery.js",
-            "tests/integrity/lib/helpers.js",
-            `packages/${config.theme || "default"}/dist/all.css`,
-            "tests/integrity/fixtures/**/*.html",
-            "tests/integrity/data/metrics.js",
-            "tests/integrity/**/*-qunit.js"
+            'node_modules/chai/chai.js',
+            'node_modules/jquery/dist/jquery.js',
+            'unit/lib/helpers.js',
+            `${config.ghActions === true ? '.tmp/dist/themes' : '../packages'}/${config.theme || 'default'}/dist/all.css`,
+            'unit/html/**/*.html',
+            'unit/data/metrics.js',
+            'unit/**/*-spec.js'
         ],
 
 
@@ -29,7 +30,7 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'tests/fixtures/**/*.html': []
+            'unit/html/**/*.html': []
             // 'tests/**/.html': ["html2js"]
         },
 
@@ -37,7 +38,7 @@ module.exports = function(config) {
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: [ 'progress' ],
+        reporters: [ 'mocha' ],
 
 
         // web server port
@@ -59,32 +60,28 @@ module.exports = function(config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: [ 'Chrome'/*, 'PhantomJS'*/ ],
+        browsers: [ 'Chrome' ],
 
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false,
+        // singleRun: false,
 
         // Concurrency level
         // how many browser should be started simultaneous
-        concurrency: Infinity,
+        // concurrency: Infinity,
 
 
         // Proxies
         proxies: {
-            "/tests/": "/base/tests/",
-            "/fixtures/": "/base/tests/integrity/fixtures/",
+            // "/tests/": "/base/tests/",
+            "/html/": "/base/unit/html/",
             "/theme/": `/base/packages/${config.theme || "default"}/dist/`
         },
 
 
         // client configuration
-        client: {
-            clearContext: false,
-            qunit: {
-                showUI: false
-            }
-        }
+        // client: {}
+
     });
 };

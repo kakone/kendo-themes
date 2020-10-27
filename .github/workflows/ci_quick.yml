@@ -1,0 +1,58 @@
+name: CI | Quick
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  CI: true
+
+on: [workflow_dispatch]
+
+jobs:
+
+  ci-quick:
+    name: Run CI
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout branch
+        uses: actions/checkout@v2
+        with:
+          ref: develop
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Setup node cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install
+        run: npm ci
+
+      - name: Bootstrap
+        run: npm run bootstrap
+
+      - name: Lint scripts
+        run: npm run eslint
+
+      - name: Lint styles
+        run: npm run sasslint
+
+      - name: Check docs
+        run: npm run docs:check
+
+      - name: Build themes using dart-sass
+        run: npm run dart:flat
+
+      - name: Build themes using node-sass
+        run: npm run sass:flat
