@@ -17,19 +17,15 @@
     @each $name, $color in $fab-theme-colors {
         .k-state-hover.k-fab-#{$name},
         .k-fab-#{$name}:hover {
-            border-color:  shade( $color, 4);
-            background-color:  shade( $color, 4);
+            border-color: true-mix( #000000, $color, 30%);
+            background-color: true-mix( #000000, $color, 30%);
         }
     }
 
     // Focus state
-    @each $name, $color in $fab-theme-colors {
-        .k-state-focus.k-fab-#{$name},
-        .k-fab-#{$name}:focus {
-            background-color: rgba( $color, .8 );
-            border-color: rgba( $color, .8 );
-            @include box-shadow($fab-focus-shadow);
-        }
+    .k-fab.k-state-focus,
+    .k-fab:focus {
+        @include box-shadow($fab-focus-shadow);
     }
 
     // Active state
@@ -37,8 +33,8 @@
         .k-state-active.k-fab-#{$name},
         .k-state-selected.k-fab-#{$name},
         .k-fab-#{$name}:active {
-            border-color: shade( $color, 1);
-            background-color: shade( $color, 1);
+            border-color: true-mix( #ffffff, $color, 12%);
+            background-color: true-mix( #ffffff, $color, 12%);
             box-shadow: $fab-shadow, 0px 3px 4px rgba($color, .4);
         }
     }
