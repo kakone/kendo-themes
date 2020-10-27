@@ -4,7 +4,7 @@
         @include box-shadow($fab-shadow);
     }
 
-    // Theme colors
+    // Normal state
     @each $name, $color in $fab-theme-colors {
         .k-fab-#{$name} {
             border-color: $color;
@@ -14,41 +14,37 @@
         }
     }
 
-    // Hover Theme colors
+    // Hover state
     @each $name, $color in $fab-theme-colors {
         .k-state-hover.k-fab-#{$name},
         .k-fab-#{$name}:hover {
             border-color: adjust-hue( $color, 3 );
-            color: contrast-wcag( $color );
             background-color: adjust-hue( $color, 3 );
             background-image: linear-gradient(rgba( adjust-hue( adjust-hue( $color, 3 ), 14), 0 ), rgba( adjust-hue( adjust-hue( $color, 3 ), 14), .2 ));
         }
     }
 
-    // Focus Theme colors
-    @each $name, $color in $fab-theme-colors {
-        .k-state-focus.k-fab-#{$name},
-        .k-fab-#{$name}:focus {
-            box-shadow: 0 3px 4px 0 rgba($color, .4);
-        }
+    // Focus state
+    .k-fab.k-state-focus,
+    .k-fab:focus {
+        @include box-shadow($fab-focus-shadow);
     }
 
-    // Active Theme colors
+    // Active state
     @each $name, $color in $fab-theme-colors {
         .k-state-active.k-fab-#{$name},
         .k-state-selected.k-fab-#{$name},
         .k-fab-#{$name}:active {
-            border-color: $color;
-            color: contrast-wcag( $color );
-            background-color: $color;
-            background-image: linear-gradient(rgba( adjust-hue( $color, 14), .2 ), rgba( adjust-hue( $color, 14), 0 ));
-            box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, .06);
+            border-color: shade( $color, 1);
+            background-color: shade( $color, 1);
+            background-image: linear-gradient(rgba( adjust-hue( $color, 14), 0 ), rgba( adjust-hue( $color, 14), .1 ), rgba( adjust-hue( $color, 14), .2 ));
+            box-shadow: $fab-shadow, 0px 3px 4px rgba($color, .4);
         }
     }
 
     // Items
     .k-fab-item > * {
-        @include box-shadow($fab-shadow);
+        @include box-shadow($fab-items-shadow);
     }
 
 }

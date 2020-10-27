@@ -75,8 +75,8 @@
         height: $fab-icon-height;
 
         &:not(:only-child) {
-            margin-right: $icon-spacing;
-            margin-left: -$icon-spacing;
+            margin-right: $fab-icon-spacing;
+            margin-left: -$fab-icon-spacing;
         }
     }
 
@@ -110,7 +110,7 @@
     // Items
     .k-fab-items {
         margin: 0;
-        padding: 12px 0;
+        padding: $fab-items-padding-y $fab-items-padding-x;
         display: flex;
     }
 
