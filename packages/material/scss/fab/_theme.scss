@@ -35,13 +35,36 @@
         .k-fab-#{$name}:active {
             border-color: true-mix( #ffffff, $color, 12%);
             background-color: true-mix( #ffffff, $color, 12%);
-            box-shadow: $fab-shadow, 0px 3px 4px rgba($color, .4);
         }
     }
 
     // Items
     .k-fab-item > * {
-        @include box-shadow($fab-items-shadow);
+        @include box-shadow($fab-item-shadow);
     }
 
+    // Hover state
+    @each $name, $color in $fab-theme-colors {
+        .k-fab-#{$name} + .k-fab-items .k-avatar.k-state-hover,
+        .k-fab-#{$name} + .k-fab-items .k-avatar:hover {
+            border-color: true-mix( #000000, $color, 30%);
+            background-color: true-mix( #000000, $color, 30%);
+        }
+    }
+
+    // Focus state
+    .k-fab-item > .k-avatar:focus
+    .k-fab-item > .k-avatar.k-state-focus {
+        @include box-shadow($fab-item-focus-shadow);
+    }
+
+    // Active state
+    @each $name, $color in $fab-theme-colors {
+        .k-fab-#{$name} + .k-fab-items .k-avatar.k-state-active,
+        .k-fab-#{$name} + .k-fab-items .k-avatar.k-state-selected,
+        .k-fab-#{$name} + .k-fab-items .k-avatar:active {
+            border-color: true-mix( #ffffff, $color, 12%);
+            background-color: true-mix( #ffffff, $color, 12%);
+        }
+    }
 }

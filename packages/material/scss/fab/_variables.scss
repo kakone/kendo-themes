@@ -33,6 +33,8 @@ $fab-sizes: map-merge((
 $fab-theme-colors: () !default;
 $fab-theme-colors: map-merge( $fab-theme-colors, $theme-colors );
 
-$fab-shadow: 0 4px 5px rgba(0, 0, 0, .14), 0 1px 10px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .2) !default;;
-$fab-focus-shadow: 0 1px 10px rgba(#000000, .22), 0 4px 5px rgba(#000000, .24), 0 2px 4px rgba(#000000, .2) !default;;
-$fab-items-shadow: $fab-shadow !default;
+$fab-shadow: 0 4px 5px rgba(0, 0, 0, .14), 0 1px 10px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .2) !default;
+$fab-focus-shadow: 0 1px 10px rgba(#000000, .22), 0 4px 5px rgba(#000000, .24), 0 2px 4px rgba(#000000, .2) !default;
+
+$fab-item-shadow: $fab-shadow !default;
+$fab-item-focus-shadow: $fab-focus-shadow !default;

@@ -114,17 +114,22 @@
         display: flex;
     }
 
-    .k-fab-item {
-        list-style-type: none;
-        margin: 4px 0;
-    }
-
     .k-fab-items-bottom {
         flex-direction: column;
     }
 
     .k-fab-items-top {
         flex-direction: column-reverse;
+    }
+
+    .k-fab-item {
+        list-style-type: none;
+        margin: 4px 0;
+    }
+
+    .k-fab-item .k-avatar {
+        cursor: pointer;
+        outline: none;
     }
 }
 
