@@ -48,9 +48,11 @@
     }
 
     // Hover state
-    @each $name, $color in $fab-theme-colors {
-        .k-fab-#{$name} + .k-fab-items .k-avatar.k-state-hover,
-        .k-fab-#{$name} + .k-fab-items .k-avatar:hover {
+    @each $name, $color in $theme-colors {
+        .k-fab-item.k-state-hover .k-badge-#{name},
+        .k-fab-item.k-state-hover .k-avatar-#{name},
+        .k-fab-item:hover .k-badge-#{name},
+        .k-fab-item:hover .k-avatar-#{name} {
             border-color: adjust-hue( $color, 3 );
             background-color: adjust-hue( $color, 3 );
             background-image: linear-gradient(rgba( adjust-hue( adjust-hue( $color, 3 ), 14), 0 ), rgba( adjust-hue( adjust-hue( $color, 3 ), 14), .2 ));
@@ -58,18 +60,21 @@
     }
 
     // Focus state
-    .k-fab-item > .k-avatar:focus
-    .k-fab-item > .k-avatar.k-state-focus {
+    .k-fab-item:focus > *,
+    .k-fab-item.k-state-focus > * {
         @include box-shadow($fab-item-focus-shadow);
     }
 
     // Active state
-    @each $name, $color in $fab-theme-colors {
-        .k-fab-#{$name} + .k-fab-items .k-avatar.k-state-active,
-        .k-fab-#{$name} + .k-fab-items .k-avatar.k-state-selected,
-        .k-fab-#{$name} + .k-fab-items .k-avatar:active {
-            border-color: true-mix( #000000, $color, 8%);
-            background-color: true-mix( #000000, $color, 8%);
+    @each $name, $color in $theme-colors {
+        .k-fab-item.k-state-active > .k-badge-#{name},
+        .k-fab-item.k-state-active > .k-avatar-#{name},
+        .k-fab-item:active > .k-badge-#{name},
+        .k-fab-item:active > .k-avatar-#{name}  {
+            border-color: shade( $color, 1);
+            background-color: shade( $color, 1);
+            background-image: linear-gradient(rgba( adjust-hue( $color, 14), 0 ), rgba( adjust-hue( $color, 14), .1 ), rgba( adjust-hue( $color, 14), .2 ));
+            box-shadow: $fab-shadow, 0px 3px 4px rgba($color, .4);
         }
     }
 
