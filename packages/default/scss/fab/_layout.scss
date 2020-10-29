@@ -22,52 +22,7 @@
         text-overflow: ellipsis;
         cursor: pointer;
         outline: none;
-
-        // Positions
-        &.k-pos-absolute {
-            position: absolute;
-        }
-        &.k-pos-fixed {
-            position: fixed;
-        }
-        &.k-top-start {
-            top: map-get( $spacing, 4 );
-            left: map-get( $spacing, 4 );
-        }
-        &.k-top-center {
-            top: map-get( $spacing, 4 );
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        &.k-top-end {
-            top: map-get( $spacing, 4 );
-            right: map-get( $spacing, 4 );
-        }
-        &.k-middle-start {
-            top: 50%;
-            transform: translateY(-50%);
-            left: map-get( $spacing, 4 );
-        }
-        &.k-middle-end {
-            top: 50%;
-            transform: translateY(-50%);
-            right: map-get( $spacing, 4 );
-        }
-        &.k-bottom-start {
-            bottom: map-get( $spacing, 4 );
-            left: map-get( $spacing, 4 );
-        }
-        &.k-bottom-center {
-            bottom: map-get( $spacing, 4 );
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        &.k-bottom-end {
-            bottom: map-get( $spacing, 4 );
-            right: map-get( $spacing, 4 );
-        }
     }
-
 
     // FAB Icon
     .k-fab-icon {
