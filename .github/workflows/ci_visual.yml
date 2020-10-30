@@ -149,21 +149,18 @@ jobs:
           git diff --exit-code --quiet -- tests/visual/output/ || has_changes=1
           echo "has_changes=$has_changes" >> $GITHUB_ENV
 
-      - name: New step
-        run: echo "${{ env.has_changes }}"
+      - name: Push changes to gtihub
+        if: ${{ env.has_changes }} == 1
+        run: |
+          echo "Visual tests have detected changes. Upading screenshots."
+          git config user.name "kendo-bot"
+          git config user.email "kendouiteam@progress.com"
 
-      # - name: Push changes to gtihub
-      #   if: ${{ env.has_changes }} == 1
-      #   run: |
-      #     echo "Visual tests have detected changes. Upading screenshots."
-      #     git config user.name "kendo-bot"
-      #     git config user.email "kendouiteam@progress.com"
+          git add tests/visual/output
+          git commit -m "chore: update visual previews"
 
-      #     git add tests/visual/output
-      #     git commit -m "chore: update visual previews"
+          git push
 
-      #     git push
-
-      # - name: No changes
-      #   if: ${{ env.has_changes }} == 0
-      #   run: echo "No changes detected"
+      - name: No changes
+        if: ${{ env.has_changes }} == 0
+        run: echo "No changes detected"
